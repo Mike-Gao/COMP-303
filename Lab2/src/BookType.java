@@ -1,0 +1,3 @@
+public enum BookType {
+    FICTION, NONFICTION, TEXTBOOK, COMIC, OTHER
+}

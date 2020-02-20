@@ -22,6 +22,18 @@ public class Staff {
         aBookRecommendation = new ArrayList<>();
     }
 
+//    public Staff(String pName, Bookstore pStore, Book recommendation) {
+//        aName = pName;
+//        aStore = pStore;
+//        aBookRecommendation = new ArrayList<>();
+//        if (recommendation == null){
+//            throw new IllegalArgumentException();
+//        } else {
+//            aBookRecommendation.add(recommendation);
+//        }
+//
+//    }
+
     /**
      * Change the staff to a different bookstore
      * @param pStore The new bookstore at which the staff will work
@@ -30,8 +42,17 @@ public class Staff {
     {
         aStore = pStore;
     }
+//    Use assert when private
+//    private void changeBookstore(Bookstore pStore)
+//    {
+//        assert pStore != null;
+//        aStore = pStore;
+//    }
 
-
+    public void addBookRecommendation(Book b){
+        if (b == null) throw new IllegalArgumentException("The argument cannot be null");
+        aBookRecommendation.add(b);
+    }
 
 
 }

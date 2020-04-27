@@ -1,0 +1,74 @@
+Q1: Academic integrity acknowledgement: Please affirm your acceptance of the integrity code. [0]
+
+Your answer [Yes/No]: Yes
+
+-------------------------------------------
+-------------------------------------------
+Q2.1:	The client class should be able to traverse the songs in the pool without knowing the underlying structure of how the songs are saved in the MusicPlayer. [5]
+
+Explanation:
+
+
+-------------------------------------------
+Q2.2:	The client class should be able to create and save playlists using the music app. The same song can be added to the playlist multiple times. A playlist can also be nested, i.e. any element in the playlist can be a playlist itself. [15]
+
+Explanation:
+
+
+-------------------------------------------
+Q2.3: The client class can add all the songs from a playlist to the queue. When added, the order of the songs in the playlist is maintained. [5]
+
+Explanation:
+
+
+-------------------------------------------
+-------------------------------------------
+Q3.1: Support the two ways of client code can access the song in the queue, i.e. ordered play and shuffled play. [15]
+
+Explanation:
+
+
+-------------------------------------------
+Q3.2: The client code can specify using which order to playing queue at any time using the music app. [5]
+
+Explanation:
+
+
+-------------------------------------------
+Q3.3: During your design, take consideration on how to avoid “null” when the queue is empty and when it reaches its end. [5]
+
+Explanation:
+
+
+-------------------------------------------
+Q3.4: Whenever the content of the queue is changed (songs added or removed), the playing order is reinitialized according to the latest status of the queue. [10]
+
+Explanation:
+
+
+-------------------------------------------
+Q3.5: Write the unit test for the class representing the shuffled play strategy and achieve the 100% method coverage. [10] 
+
+Explanation:
+
+
+-------------------------------------------
+-------------------------------------------
+Q4.1: Using the provided Controller interface, achieve the support for both remote controller and voice controller for playing next either the song in the music player or radio station in the radio receiver. For the voice controller, please simply print some message using the Java print stream to mimic generating speech for the sake of this exam. [15]
+
+Explanation:
+
+
+-------------------------------------------
+Q4.2: Write a mock-up client code to showcase the complete code you have designed and implemented so far (from Questions 2-4) in the empty main method in the HomeEntertainmentSystem class. [10]
+
+Explanation:
+
+
+-------------------------------------------
+-------------------------------------------
+Q4.Takeaways/Feedback for this course [5]
+
+Your answer:
+
+

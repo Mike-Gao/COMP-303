@@ -1,3 +1,4 @@
+import java.util.Iterator;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -5,9 +6,10 @@ import java.util.Map;
  * A class representing a Music Player App.
  * It contains a pool of songs that allow the user to traverse and add to the queue to play.
  */
-public class MusicPlayer {
+public class MusicPlayer implements Iterable<Song>{
     private Map<String, Song> aItems = new LinkedHashMap<>(); // Make sure a predictable iteration order.
-    private Queue aQueue = new Queue(); //
+    private Queue aQueue = new Queue();
+    private enum playOrder { INORDER, RANDOM };
 
     MusicPlayer(){}
 
@@ -40,4 +42,16 @@ public class MusicPlayer {
         return aQueue.size();
     }
 
+    // Question 2.1
+    @Override
+    public Iterator<Song> iterator() {
+        return aItems.values().iterator();
+    }
+
+    // Question 2.3
+    public void playlistToQueue(Queue q) {
+
+    }
+
+    // Question 3.2
 }

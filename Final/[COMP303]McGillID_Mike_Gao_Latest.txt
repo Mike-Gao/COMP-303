@@ -8,6 +8,7 @@ Q2.1:	The client class should be able to traverse the songs in the pool without 
 
 Explanation:
 
+We use the Iterator design pattern.
 
 -------------------------------------------
 Q2.2:	The client class should be able to create and save playlists using the music app. The same song can be added to the playlist multiple times. A playlist can also be nested, i.e. any element in the playlist can be a playlist itself. [15]
@@ -62,7 +63,7 @@ Explanation:
 -------------------------------------------
 Q4.2: Write a mock-up client code to showcase the complete code you have designed and implemented so far (from Questions 2-4) in the empty main method in the HomeEntertainmentSystem class. [10]
 
-Explanation:
+Explanation: See code.
 
 
 -------------------------------------------
@@ -70,5 +71,5 @@ Explanation:
 Q4.Takeaways/Feedback for this course [5]
 
 Your answer:
-
+I really like the videos in the online potion of the course. I think while lecture recording can be less effective than in class teaching, the small video tutorial should be preserved.
 

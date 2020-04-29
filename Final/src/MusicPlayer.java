@@ -6,11 +6,14 @@ import java.util.Map;
  * A class representing a Music Player App.
  * It contains a pool of songs that allow the user to traverse and add to the queue to play.
  */
+
 public class MusicPlayer implements Iterable<Song>{
     private Map<String, Song> aItems = new LinkedHashMap<>(); // Make sure a predictable iteration order.
-    private Queue aQueue = new Queue();
-    private enum playOrder { INORDER, RANDOM };
+    private Map<String, PlayList> PlayLists = new LinkedHashMap<>();
 
+    private Queue aQueue = new Queue();
+    enum playOrder { INORDER, RANDOM };
+    playOrder p;
     MusicPlayer(){}
 
     /**
@@ -48,10 +51,27 @@ public class MusicPlayer implements Iterable<Song>{
         return aItems.values().iterator();
     }
 
+    public Song getSong(String s) {
+        return (aItems.containsKey(s)) ? aItems.get(s) : null;
+    }
+
+    // Question 2.2
+    public void createPlayList(String s) {
+        assert s != null;
+        PlayLists.putIfAbsent(s, new PlayList(s));
+    }
+
+    public void addItemToPlayList(String s, PlayListElem e){
+
+    }
+
     // Question 2.3
-    public void playlistToQueue(Queue q) {
+    public void addPlayListToQueue(String s) {
 
     }
 
     // Question 3.2
+    public void setplayOrder(playOrder s){
+        this.p = s;
+    }
 }

@@ -28,6 +28,10 @@ Q3.1: Support the two ways of client code can access the song in the queue, i.e.
 
 Explanation:
 
+Here we use the strategy design pattern.
+
+In addition, I've also made Queue to only take in Song, and implemented Iterable<Song> at the same time.
+
 
 -------------------------------------------
 Q3.2: The client code can specify using which order to playing queue at any time using the music app. [5]

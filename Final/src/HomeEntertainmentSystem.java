@@ -26,6 +26,8 @@ public class HomeEntertainmentSystem {
         }
 
         // Question 2.2
+        m.addItemToQueue("Item");
+        m.addPlayListToQueue("Playlist");
 
         // Question 2.3
 

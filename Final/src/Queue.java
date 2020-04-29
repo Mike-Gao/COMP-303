@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -7,7 +8,7 @@ import java.util.List;
  * using different playing strategy.
  * It can contain repeated songs.
  */
-public class Queue{
+public class Queue<Song> implements Iterable<Song> {
     private List<Song> aSongElements = new ArrayList<>();
 
     /**
@@ -50,37 +51,8 @@ public class Queue{
         aSongElements.remove(pItem);
     }
 
-    public PlayOrder initShuffledPlayStrategy() {
-        return new PlayOrder() {
-            int ptr = 0;
-            ArrayList <Integer> visited = new ArrayList<>();
-            @Override
-            public int getNext() {
-                do{
-                    ptr = (int) Math.floor(Math.random()*size());
-                } while (visited.contains(ptr));
-                return ptr;
-            }
-
-            @Override
-            public boolean hasNext() {
-                return !(visited.size() == size());
-            }
-        };
-    }
-
-    public PlayOrder initOrderPlayStrategy() {
-        return new PlayOrder() {
-            int ptr = 0;
-            @Override
-            public int getNext() {
-                return ptr++;
-            }
-
-            @Override
-            public boolean hasNext() {
-                return !(ptr >= size());
-            }
-        };
+    @Override
+    public Iterator<Song> iterator() {
+        return aSongElements.iterator();
     }
 }

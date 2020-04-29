@@ -11,12 +11,12 @@ public class PlayList implements PlayListElem, Iterable<PlayListElem> {
         aName = s;
     }
 
-    public void addItemToPlayList(PlayListElem e) {
+    public void addItem(PlayListElem e) {
         assert e != null;
         elements.add(e);
     }
 
-    public void removeItemFromPlayList(PlayListElem e) {
+    public void removeItem(PlayListElem e) {
         assert e != null;
         elements.remove(e);
     }

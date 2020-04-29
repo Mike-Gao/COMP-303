@@ -1,22 +1,15 @@
-import java.util.Map;
+import java.util.ArrayList;
 
-public class OrderedPlay implements PlayOrder {
-
-    private Queue<Song> orderedQueue;
-    private Map<Integer, Song> orderedMap;
-
-    public OrderedPlay(Queue q, Map<Integer, Song> m) {
-        orderedQueue  = q;
-        orderedMap = m;
-    }
-
-    @Override
-    public int getNext() {
-        return 0;
-    }
-
-    @Override
-    public boolean hasNext() {
-        return false;
+public class OrderedPlay extends AbstractPlay {
+    ArrayList<Integer> al = new ArrayList<>();
+    /*
+    * Reinit to initial state
+    * @param size, Size of the queue
+     */
+    public void reinit(int size){
+        for (int i = 0; i < size; i++) {
+            al.add(i);
+        }
+        it = al.iterator();
     }
 }

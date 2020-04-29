@@ -1,4 +1,4 @@
-public class Song {
+public class Song implements PlayListElem{
     private final String aName;
     private final String aArtist;
     private final int aLength;

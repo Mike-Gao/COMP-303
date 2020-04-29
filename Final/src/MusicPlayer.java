@@ -14,6 +14,7 @@ public class MusicPlayer implements Iterable<Song>{
     private Queue aQueue = new Queue();
     enum playOrder { INORDER, RANDOM };
     playOrder p;
+
     MusicPlayer(){}
 
     /**
@@ -51,27 +52,61 @@ public class MusicPlayer implements Iterable<Song>{
         return aItems.values().iterator();
     }
 
-    public Song getSong(String s) {
-        return (aItems.containsKey(s)) ? aItems.get(s) : null;
+    public Song getSong(String s) throws Exception {
+        if (aItems.containsKey(s)) {
+            return aItems.get(s);
+        } else {
+            throw new Exception();
+        }
     }
 
     // Question 2.2
-    public void createPlayList(String s) {
-        assert s != null;
-        PlayLists.putIfAbsent(s, new PlayList(s));
+    public void addItemToPlayList(String s, PlayListElem e){
+        assert s != null && e != null;
+        if ((PlayLists.containsKey(s))) {
+            PlayLists.get(s).addItem(e);
+        } else {
+            PlayLists.put(s, new PlayList(s)).addItem(e);
+        }
     }
 
-    public void addItemToPlayList(String s, PlayListElem e){
-
+    public PlayList getPlayList(String s) throws Exception {
+        if (PlayLists.containsKey(s)) {
+            return PlayLists.get(s);
+        } else {
+            throw new Exception();
+        }
     }
 
     // Question 2.3
     public void addPlayListToQueue(String s) {
-
+        assert s!= null;
+        if (PlayLists.containsKey(s)) {
+            for (PlayListElem e : PlayLists.get(s)) {
+                if (e instanceof Song) {
+                    addItemToQueue(e.getName());
+                } else if (e instanceof PlayList) {
+                    this.addPlayListToQueue(e.getName());
+                }
+            }
+        }
     }
 
     // Question 3.2
-    public void setplayOrder(playOrder s){
-        this.p = s;
+    public void setPlayOrder(playOrder p) {
+        this.p = p;
     }
+
+    public void initPlayOrder() {
+        OrderedPlay play;
+        switch(p) {
+            case RANDOM:
+                play = new ShuffledPlay();
+                play.reinit(aQueue.size());
+            case INORDER:
+                play = new OrderedPlay();
+                play.reinit(aQueue.size());
+        }
+    }
+
 }

@@ -8,7 +8,7 @@ import java.util.List;
  * using different playing strategy.
  * It can contain repeated songs.
  */
-public class Queue<Song> implements Iterable<Song> {
+public class Queue<Song> {
     private List<Song> aSongElements = new ArrayList<>();
 
     /**
@@ -49,10 +49,5 @@ public class Queue<Song> implements Iterable<Song> {
     public void remove(Song pItem) {
         assert pItem!=null;
         aSongElements.remove(pItem);
-    }
-
-    @Override
-    public Iterator<Song> iterator() {
-        return aSongElements.iterator();
     }
 }

@@ -5,12 +5,12 @@ import java.util.*;
  * It contains a pool of songs that allow the user to traverse and add to the queue to play.
  */
 
-public class MusicPlayer implements Iterable<Song>{
+public class MusicPlayer implements Iterable<Song>, Controllable{
     private Map<String, Song> aItems = new LinkedHashMap<>(); // Make sure a predictable iteration order.
     private Map<String, PlayList> PlayLists = new LinkedHashMap<>();
 
     private Queue aQueue = new Queue();
-    AbstractPlay playOrder;
+    AbstractPlay playOrder = new OrderedPlay(); // default config
 
     MusicPlayer(){}
 
@@ -109,17 +109,16 @@ public class MusicPlayer implements Iterable<Song>{
         }
     }
 
-    // View and clear the Queue
-    public void viewQueue() {
-        while (playOrder.hasNext()) {
-            Song s = (Song) aQueue.get(playOrder.getNext());
-            System.out.println(s.getName());
-        }
-    }
 
     public void viewPlayList() {
         for (String s : PlayLists.keySet()) {
-            System.out.println(s);
+            System.out.println("Playlist " + s + " Contains the following Song or Playlists");
+            Iterator it = PlayLists.get(s).iterator();
+            while(it.hasNext()) {
+                PlayListElem elem = (PlayListElem) it.next();
+                System.out.println(elem.getName());
+            }
+            System.out.println("-----------------");
         }
     }
 

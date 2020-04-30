@@ -43,6 +43,14 @@ public class ShuffledPlayTest {
     }
 
     @Test
+    public void testInitLowerSize() {
+        AbstractPlay test = new ShuffledPlay();
+        test.init(2);
+        test.init(0);
+        assertFalse(test.hasNext());
+    }
+
+    @Test
     public void testEmpty() {
         AbstractPlay test = new ShuffledPlay();
         test.init(0);

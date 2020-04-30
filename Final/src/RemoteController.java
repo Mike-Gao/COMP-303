@@ -1,12 +1,15 @@
 public class RemoteController implements Controller {
 
-    @Override
-    public void next() {
-        HomeEntertainmentSystem.functions.NEXT.execute();
+    Controllable media;
+
+    public RemoteController(Controllable m) {
+        this.media = m;
     }
 
     @Override
-    public void change() {
-        HomeEntertainmentSystem.operationMode.modeSelect();
+    public void next() {
+        media.play();
     }
+
+
 }

@@ -7,5 +7,4 @@ public interface Controller {
      * Move to the next content
      */
     void next();
-    void change();
 }

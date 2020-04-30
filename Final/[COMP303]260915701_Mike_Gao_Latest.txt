@@ -86,6 +86,8 @@ Q4.1: Using the provided Controller interface, achieve the support for both remo
 Explanation:
 
 See RemoteController.java and VoiceController.java
+I used the composition design pattern here, first creating the Controllable Interface, Which MusicPlayer implements.
+Should there be a RadioReceiver, it should also implement the Controllable Interface.
 
 
 -------------------------------------------

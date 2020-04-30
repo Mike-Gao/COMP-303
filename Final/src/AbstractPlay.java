@@ -5,7 +5,7 @@ import java.util.Iterator;
 public class AbstractPlay implements PlayOrder{
 
     protected Iterator<Integer> it = Collections.emptyIterator();
-    protected ArrayList<Integer> al = new ArrayList<>();
+    protected ArrayList<Integer> al;
     @Override
     public int getNext() {
         return it.next();
@@ -18,6 +18,8 @@ public class AbstractPlay implements PlayOrder{
 
     @Override
     public void init(int size) {
+        assert size >= 0;
+        al = new ArrayList<>();
         for (int i = 0; i < size; i++) {
             al.add(i);
         }

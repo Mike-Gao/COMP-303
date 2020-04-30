@@ -51,7 +51,7 @@ Q3.2: The client code can specify using which order to playing queue at any time
 Explanation:
 
 I configured the default play order to be OrderedPlay().
-Whenever user feel like updating the playorder they can create a new AbstractPlay object and use setPlayOrder(PlayOrder p).
+Whenever user feel like updating the playorder they can create a new AbstractPlay object and use setPlayOrder(AbstractPlay p).
 
 
 -------------------------------------------
@@ -59,7 +59,7 @@ Q3.3: During your design, take consideration on how to avoid “null” when the
 
 Explanation:
 
-I use the iterator's hasnext() method to ensure that there is nothing left to be played in the queue.
+I use the iterator's hasnext() method to ensure that there is nothing left to be played in the queue and that no "null" is returned, ever.
 
 
 -------------------------------------------
@@ -67,7 +67,7 @@ Q3.4: Whenever the content of the queue is changed (songs added or removed), the
 
 Explanation:
 
-Whenever the content of the queue is changed, we simply pass in a new playOrder();
+Whenever the content of the queue is changed, we simply reinitialize playOrder by doing playOrder.init();
 
 
 -------------------------------------------

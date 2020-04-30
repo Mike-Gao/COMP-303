@@ -55,7 +55,7 @@ public class HomeEntertainmentSystem {
 
         // Question 2.3 & Question 3.1
         m.setPlayOrder(new OrderedPlay());
-        System.out.println("Testing for Q2.3 & Q3.1 OrderedPlay ");
+        System.out.println("Testing for Q2.3 & Q3.1 OrderedPlay");
         m.addItemToQueue("As Long As You Love Me");
         m.addPlayListToQueue("Kevin");
         // View queue to confirm everything is added and the order is preserved at the same time.
@@ -66,7 +66,7 @@ public class HomeEntertainmentSystem {
         System.out.println("=================");
 
         // Question 3.2
-        System.out.println("Testing for Q3.2 + Shuffled Play");
+        System.out.println("Testing for Q3.2 + ShuffledPlay");
         m.setPlayOrder(new ShuffledPlay());
         // View Queue to confirm everything is added and the order is preserved at the same time.
         m.play();
@@ -76,7 +76,7 @@ public class HomeEntertainmentSystem {
         System.out.println("=================");
 
         // Question 3.4
-        System.out.println("Testing for Q3.4 + Shuffled Play");
+        System.out.println("Testing for Q3.4 + ShuffledPlay");
         m.addItemToQueue("WALK");
         System.out.println("View and Check the Queue Here");
         m.play();
@@ -87,7 +87,7 @@ public class HomeEntertainmentSystem {
         System.out.println("=================");
 
         // Question 4.1
-        System.out.println("Testing for Q4.1 + Ordered Play");
+        System.out.println("Testing for Q4.1 + OrderedPlay");
         m.setPlayOrder(new OrderedPlay());
         Controller remote = new RemoteController(m);
         remote.next();

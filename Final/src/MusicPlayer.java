@@ -10,7 +10,7 @@ public class MusicPlayer implements Iterable<Song>{
     private Map<String, PlayList> PlayLists = new LinkedHashMap<>();
 
     private Queue aQueue = new Queue();
-    PlayOrder playOrder;
+    AbstractPlay playOrder;
 
     MusicPlayer(){}
 
@@ -31,8 +31,11 @@ public class MusicPlayer implements Iterable<Song>{
      */
     public void addItemToQueue(String pItemName) {
         assert pItemName!= null;
-        if (aItems.containsKey(pItemName))
+        if (aItems.containsKey(pItemName)){
             aQueue.add(aItems.get(pItemName));
+            playOrder.init(getQueueSize());
+        }
+
     }
 
     /**
@@ -91,17 +94,22 @@ public class MusicPlayer implements Iterable<Song>{
     }
 
     // Question 3.2
-    public void setPlayOrder(PlayOrder p) {
+    public void setPlayOrder(AbstractPlay p) {
         playOrder = p;
-        playOrder.init(aQueue.size());
+        playOrder.init(getQueueSize());
     }
 
     // Question 3.3
-    public Optional<Object> play() {
-        setPlayOrder(new OrderedPlay());
-        return (playOrder.hasNext()) ?  Optional.of(aQueue.get(playOrder.getNext())) : Optional.empty();
+    public void play() {
+        if (playOrder.hasNext()) {
+            Song cur = (Song) aQueue.get(playOrder.getNext());
+            System.out.println("Currently Playing: " + cur.getName());
+        } else {
+            System.out.println("There is no more to be played.");
+        }
     }
 
+    // View and clear the Queue
     public void viewQueue() {
         while (playOrder.hasNext()) {
             Song s = (Song) aQueue.get(playOrder.getNext());

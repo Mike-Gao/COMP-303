@@ -1,11 +1,10 @@
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 
-import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.NoSuchElementException;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static sun.reflect.misc.FieldUtil.getDeclaredFields;
-import static sun.reflect.misc.FieldUtil.getField;
 
 public class ShuffledPlayTest {
 
@@ -13,13 +12,41 @@ public class ShuffledPlayTest {
 
     @Test
     public void shuffledPlayTest() {
-        ArrayList<Integer> aList = new ArrayList<>();
-        aList.add(0);
-        aList.add(1);
-        aList.add(2);
-        assertNotNull(new ShuffledPlay());
         AbstractPlay test = new ShuffledPlay();
-        test.init(5);
+        test.init(1);
         assertNotNull(test.getNext());
+        // Make Sure that it throws NoSuchElementException
+        Assertions.assertThrows(NoSuchElementException.class, () -> {
+            test.getNext();
+        });
     }
+
+    @Test
+    public void testWithSameSize() {
+        AbstractPlay test = new ShuffledPlay();
+        test.init(1);
+        test.getNext();
+        test.init(1);
+        assertTrue(test.hasNext());
+    }
+
+    @Test
+    public void testInitHigherSize() {
+        AbstractPlay test = new ShuffledPlay();
+        test.init(1);
+        test.getNext();
+        test.init(2);
+        test.getNext();
+        assertTrue(test.hasNext());
+        test.getNext();
+        assertFalse(test.hasNext());
+    }
+
+    @Test
+    public void testEmpty() {
+        AbstractPlay test = new ShuffledPlay();
+        test.init(0);
+        assertFalse(test.hasNext());
+    }
+
 }

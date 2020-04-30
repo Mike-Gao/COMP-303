@@ -8,16 +8,20 @@ Q2.1:	The client class should be able to traverse the songs in the pool without 
 
 Explanation:
 
-We use the Iterator design pattern.
+We use the Iterator design pattern, because it provides a way to access the elements of an aggregate object sequentially without exposing the underlying representation.
 
 -------------------------------------------
 Q2.2:	The client class should be able to create and save playlists using the music app. The same song can be added to the playlist multiple times. A playlist can also be nested, i.e. any element in the playlist can be a playlist itself. [15]
 
 Explanation:
 
-See code demo.
+In order to be able to save nested playlist, we first have to realize that playlist and songs can both be saved into the main playlist within MusicPlayer.
 
-public void addItemToPlayList(String s, PlayListElem e)  creates a PlayList if a playlist of name s does not exist, and both PlayList and Song implements PlayListElem, which allows for nested PlayList.
+So here we create an Interface PlayListElem, and both PlayList and Song implements PlayListElem, which allows for nested PlayList.
+
+Finally, to maximize code efficiency, instead of creating separate "create playlist" and "add item to playlist" method, only the below method is created combing both "creation" and "add item" function.
+
+public void addItemToPlayList(String s, PlayListElem e)  creates a PlayList if a playlist of name s does not exist.
 
 
 -------------------------------------------
@@ -34,7 +38,9 @@ Q3.1: Support the two ways of client code can access the song in the queue, i.e.
 
 Explanation:
 
-Here we use the Strategy design pattern.
+Here we use the Strategy design pattern. To allow for maximum extensibility, we create an abstract class AbstractPlay, which implements PlayOrder.
+
+We then create OrderedPlay that extends AbstractPlay and ShuffledPlay that extends AbstractPlay.
 
 In addition, to make the design more robust, I've also made Queue to only take in Song.
 
@@ -44,6 +50,8 @@ Q3.2: The client code can specify using which order to playing queue at any time
 
 Explanation:
 
+In order to be able to set the play order of the song, we need two things: first we need t be able
+
 See setPlayOrder(PlayOrder p)
 
 
@@ -52,7 +60,7 @@ Q3.3: During your design, take consideration on how to avoid “null” when the
 
 Explanation:
 
-I use Optional<Song> to ensure that null is not returned when the queue is empty or when there is nothing left to be played in the queue.
+I use the iterator's hasnext() method to ensure that there is nothing left to be played in the queue.
 
 
 -------------------------------------------
@@ -68,7 +76,7 @@ Q3.5: Write the unit test for the class representing the shuffled play strategy 
 
 Explanation:
 
-See ShuffledPlayTest.
+See ShuffledPlayTest.java
 
 
 -------------------------------------------

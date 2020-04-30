@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class ShuffledPlay extends OrderedPlay {
+public class ShuffledPlay extends AbstractPlay {
 
     /*
      * Reinit to initial state

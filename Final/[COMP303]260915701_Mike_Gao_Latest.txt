@@ -29,7 +29,7 @@ Q2.3: The client class can add all the songs from a playlist to the queue. When 
 
 Explanation:
 
-I used a recursive method to recursively add songs.
+I used a recursive method to recursively add songs. See addPlayListToQueue(String s) for detail.
 
 
 -------------------------------------------
@@ -50,9 +50,8 @@ Q3.2: The client code can specify using which order to playing queue at any time
 
 Explanation:
 
-In order to be able to set the play order of the song, we need two things: first we need t be able
-
-See setPlayOrder(PlayOrder p)
+I configured the default play order to be OrderedPlay().
+Whenever user feel like updating the playorder they can create a new AbstractPlay object and use setPlayOrder(PlayOrder p).
 
 
 -------------------------------------------
@@ -105,5 +104,5 @@ Q4.Takeaways/Feedback for this course [5]
 Your answer:
 I really like the videos in the online potion of the course.
 I think while lecture recording can be less effective than in class teaching, the small video tutorial should be preserved.
-I think the questions in this exam is very vague and quite poorly designed. The code base is good, but the question could be written in a more straightforward and a specific way.
+I think the questions in this exam is quite vague. The code base is good, but the question could be written in a more straightforward and concise manner.
 

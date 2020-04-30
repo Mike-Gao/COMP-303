@@ -1,6 +1,4 @@
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.util.*;
 
 /**
  * A class representing a Music Player App.
@@ -12,8 +10,7 @@ public class MusicPlayer implements Iterable<Song>{
     private Map<String, PlayList> PlayLists = new LinkedHashMap<>();
 
     private Queue aQueue = new Queue();
-    enum playOrder { INORDER, RANDOM };
-    playOrder p;
+    PlayOrder playOrder;
 
     MusicPlayer(){}
 
@@ -66,7 +63,8 @@ public class MusicPlayer implements Iterable<Song>{
         if ((PlayLists.containsKey(s))) {
             PlayLists.get(s).addItem(e);
         } else {
-            PlayLists.put(s, new PlayList(s)).addItem(e);
+            PlayLists.put(s, new PlayList(s));
+            PlayLists.get(s).addItem(e);
         }
     }
 
@@ -93,19 +91,27 @@ public class MusicPlayer implements Iterable<Song>{
     }
 
     // Question 3.2
-    public void setPlayOrder(playOrder p) {
-        this.p = p;
+    public void setPlayOrder(PlayOrder p) {
+        playOrder = p;
+        playOrder.init(aQueue.size());
     }
 
-    public void initPlayOrder() {
-        OrderedPlay play;
-        switch(p) {
-            case RANDOM:
-                play = new ShuffledPlay();
-                play.reinit(aQueue.size());
-            case INORDER:
-                play = new OrderedPlay();
-                play.reinit(aQueue.size());
+    // Question 3.3
+    public Optional<Object> play() {
+        setPlayOrder(new OrderedPlay());
+        return (playOrder.hasNext()) ?  Optional.of(aQueue.get(playOrder.getNext())) : Optional.empty();
+    }
+
+    public void viewQueue() {
+        while (playOrder.hasNext()) {
+            Song s = (Song) aQueue.get(playOrder.getNext());
+            System.out.println(s.getName());
+        }
+    }
+
+    public void viewPlayList() {
+        for (String s : PlayLists.keySet()) {
+            System.out.println(s);
         }
     }
 

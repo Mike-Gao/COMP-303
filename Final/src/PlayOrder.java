@@ -13,4 +13,6 @@ public interface PlayOrder {
      * @return true if the collection has more element to traverse
      */
     boolean hasNext();
+
+    void init(int size);
 }

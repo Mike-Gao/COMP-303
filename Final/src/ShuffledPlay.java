@@ -7,8 +7,8 @@ public class ShuffledPlay extends OrderedPlay {
      * Reinit to initial state
      * @param size, Size of the queue
      */
-    public void reinit(int size){
-        super.reinit(size);
+    public void init(int size){
+        super.init(size);
         Collections.shuffle(al);
         it = al.iterator();
     }

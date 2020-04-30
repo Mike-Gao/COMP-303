@@ -15,7 +15,9 @@ Q2.2:	The client class should be able to create and save playlists using the mus
 
 Explanation:
 
-See code.
+See code demo.
+
+public void addItemToPlayList(String s, PlayListElem e)  creates a PlayList if a playlist of name s does not exist, and both PlayList and Song implements PlayListElem, which allows for nested PlayList.
 
 
 -------------------------------------------
@@ -32,9 +34,9 @@ Q3.1: Support the two ways of client code can access the song in the queue, i.e.
 
 Explanation:
 
-Here we use the strategy design pattern.
+Here we use the Strategy design pattern.
 
-In addition, I've also made Queue to only take in Song.
+In addition, to make the design more robust, I've also made Queue to only take in Song.
 
 
 -------------------------------------------
@@ -42,11 +44,15 @@ Q3.2: The client code can specify using which order to playing queue at any time
 
 Explanation:
 
+See setPlayOrder(PlayOrder p)
+
 
 -------------------------------------------
 Q3.3: During your design, take consideration on how to avoid “null” when the queue is empty and when it reaches its end. [5]
 
-Explanation: See Code
+Explanation:
+
+I use Optional<Song> to ensure that null is not returned when the queue is empty or when there is nothing left to be played in the queue.
 
 
 -------------------------------------------
@@ -54,11 +60,15 @@ Q3.4: Whenever the content of the queue is changed (songs added or removed), the
 
 Explanation:
 
+Whenever the content of the queue is changed, we simply pass in a new playOrder();
+
 
 -------------------------------------------
 Q3.5: Write the unit test for the class representing the shuffled play strategy and achieve the 100% method coverage. [10] 
 
 Explanation:
+
+See ShuffledPlayTest.
 
 
 -------------------------------------------
@@ -67,11 +77,15 @@ Q4.1: Using the provided Controller interface, achieve the support for both remo
 
 Explanation:
 
+See RemoteController.java and VoiceController.java
+
 
 -------------------------------------------
 Q4.2: Write a mock-up client code to showcase the complete code you have designed and implemented so far (from Questions 2-4) in the empty main method in the HomeEntertainmentSystem class. [10]
 
-Explanation: See code.
+Explanation:
+
+See the HomeEntertainmentSystem.java.
 
 
 -------------------------------------------
@@ -79,5 +93,7 @@ Explanation: See code.
 Q4.Takeaways/Feedback for this course [5]
 
 Your answer:
-I really like the videos in the online potion of the course. I think while lecture recording can be less effective than in class teaching, the small video tutorial should be preserved.
+I really like the videos in the online potion of the course.
+I think while lecture recording can be less effective than in class teaching, the small video tutorial should be preserved.
+I think the questions in this exam is very vague and quite poorly designed. The code base is good, but the question could be written in a more straightforward and a specific way.
 
